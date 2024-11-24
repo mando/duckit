@@ -108,3 +108,8 @@ D select * from t;
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 D
 ```
+
+### How?
+
+I dunno, I toss `duckit` into my `.zshrc` like a sicko, but you could put it somewhere better and `source` it like a good
+person. But however you get it into your shell, just `duckit filename` and you're g2g.
