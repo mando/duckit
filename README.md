@@ -4,6 +4,7 @@ I've been throughly [duckpilled]([url](https://duckdb.org)). I've spent the bett
 CSVs and let me tell you, duckdb has been right there with me, helping me along the way.
 
 <img src="https://media.tenor.com/xZtJvkD2wkwAAAAe/what-we-do-in-the-shadows-laszlo-cravensworth.png">
+
 _me, talking about duckdb to anyone who will listen_
 
 And after a year of doing this DAY AFTER DAY AFTER DAY
