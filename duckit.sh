@@ -9,13 +9,22 @@ duckit() {
 
   duck_cmd=""
   if [[ "json" == "$extension" ]]; then
-    duck_cmd="read_json('/dev/stdin')"
+    duck_cmd="read_json('$1')"
   elif [[ "csv" == "$extension" ]]; then
-    duck_cmd="read_csv('/dev/stdin', store_rejects = true)"
+    duck_cmd="read_csv('$1', store_rejects = true)"
+  elif [[ "xlsx" == "$extension" ]]; then
+    duck_cmd="read_xlsx('$1')";
   else
-    echo "only csvs and json my guy sorry!"
+    echo "only csvs and xlsx and json my guy sorry!"
     return 1
   fi
 
-  duckdb "$tmp_db" "create table t as select * from $duck_cmd" < "$1" && duckdb "$tmp_db"
-}
+  duckdb -init /dev/fd/3 3<<<$(
+cat <<EOF
+.print "Creating table 't' from $1"
+create table t as select * from $duck_cmd;
+describe t;
+.echo off
+EOF
+  )
+} 
