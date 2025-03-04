@@ -3,9 +3,6 @@
 duckit() {
   filename=$(basename -- "$1")
   extension="${filename##*.}"
-  filename="${filename%.*}"
-
-  tmp_db=$(mktemp).db
 
   duck_cmd=""
   if [[ "json" == "$extension" ]]; then
