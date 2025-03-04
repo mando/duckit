@@ -16,12 +16,12 @@ duckit() {
     return 1
   fi
 
-  duckdb -init /dev/fd/3 3<<<$(
+  duckdb -init /dev/fd/3 3<<<"$(
 cat <<EOF
 .print "Creating table 't' from $1"
 create table t as select * from $duck_cmd;
 describe t;
 .echo off
 EOF
-  )
-} 
+  )"
+}
